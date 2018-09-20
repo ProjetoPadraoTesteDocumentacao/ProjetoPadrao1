@@ -3,23 +3,23 @@
 <!-- div row para pesquisa -->
 <!--<div class="row">-->
 
-<datasource data-component="crn-datasource" filter="" name="cid_cidades" entity="app.cid_cidades" keys="id" rows-per-page="100" class=""></datasource>
+<datasource data-component="crn-datasource" filter="" name="Cidades" entity="app.Cidades" keys="id" rows-per-page="100" class=""></datasource>
 
-    <div ng-hide="cid_cidades.inserting || cid_cidades.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
+    <div ng-hide="Cidades.inserting || Cidades.editing" data-component="crn-datasource-filter" id="crn-datasource-filter-general" class="">
         <div class="form-group">
             <label for="textinput-filter" class="">{{"template.crud.search" | translate}}</label>
-            <input type="text" ng-model="vars.search" cronapp-filter="nome;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="cid_cidades" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
+            <input type="text" ng-model="vars.search" cronapp-filter="nome;" cronapp-filter-operator="" cronapp-filter-caseinsensitive="false" cronapp-filter-autopost="true" crn-datasource="Cidades" class="form-control" value="" placeholder="{{'template.crud.search' | translate}}">
         </div>
     </div>
 
 <div data-component="crn-button" id="crn-button-564202" class="">
-    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="cid_cidades.startInserting()" ng-hide="cid_cidades.inserting || cid_cidades.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
+    <button class="btn btn-primary" type="submit" onclick="" data-component="crn-button" ng-click="Cidades.startInserting()" ng-hide="Cidades.inserting || Cidades.editing"><i class="fa fa-user"></i> <span class="">{{"template.crud.new" | translate}}</span></button>
 </div>
 <!-- fim div row para pesquisa -->
 <!--</div>-->
 
-<div class="component-holder" data-component="crn-grid" id="crn-grid-cid_cidades">
-    <div crn-datasource="cid_cidades" class="" ng-hide="cid_cidades.editing || cid_cidades.inserting">
+<div class="component-holder" data-component="crn-grid" id="crn-grid-Cidades">
+    <div crn-datasource="Cidades" class="" ng-hide="Cidades.editing || Cidades.inserting">
         <table class="table  table-bordered table-hover table-striped">
             <thead>
             <tr class="table-header">
@@ -27,7 +27,7 @@
                     <div class="">Cidade</div>
                 </th>
                 <th class="">
-                    <div class="">Est_Estado</div>
+                    <div class="">Estado</div>
                 </th>
                 <th class="">
                     <div class="">{{"template.crud.actions" | translate}}</div>
@@ -42,7 +42,7 @@
                     </div>
                 </td>
                 <td class="">
-                    <div class="">{{rowData.est_Estado_nome}}</div>
+                    <div class="">{{rowData.estado_nome}}</div>
                 </td>
                 <td class="">
                     <div class="">
@@ -58,9 +58,9 @@
         </div>
     </div>
 </div>
-<div data-component="crn-form" id="crn-form-form-cid_cidades">
-    <div class="form" ng-show="cid_cidades.editing || cid_cidades.inserting">
-        <form crn-datasource="cid_cidades" class="">
+<div data-component="crn-form" id="crn-form-form-Cidades">
+    <div class="form" ng-show="Cidades.editing || Cidades.inserting">
+        <form crn-datasource="Cidades" class="">
             <div class="tool-bar" ng-hide="datasource.editing || datasource.inserting">
                 <button class="btn btn-primary" data-component="crn-button" ng-click="datasource.startInserting()"><i class="glyphicon glyphicon-plus-sign"></i></button>
                 <button class="btn btn-success" data-component="crn-button" ng-click="datasource.startEditing()"><i class="glyphicon glyphicon-edit"></i></button>
@@ -80,18 +80,18 @@
                     <div class="form-group">
                         <label for="textinput-nome" class="">Cidade</label>
  <!-- else for if !model.hasCronappFramework() -->
-                                <input type="text" ng-model="cid_cidades.active.nome" class="form-control" id="textinput-nome" placeholder="Cidade" mask="" mask-placeholder="" ng-required="false">
+                                <input type="text" ng-model="Cidades.active.nome" class="form-control" id="textinput-nome" placeholder="Cidade" mask="" mask-placeholder="" ng-required="false">
                          <!-- end if !model.hasCronappFramework() -->
                     </div>
                 </div>
-                    <datasource data-component="crn-datasource" name="est_EstadoCombo" entity="app.est_Estado" keys="id" dependent-by="{{cid_cidades}}"></datasource>
+                    <datasource data-component="crn-datasource" name="EstadosCombo" entity="app.Estados" keys="id" dependent-by="{{Cidades}}"></datasource>
 				
 
-                <div data-component="crn-enterprise-dynamic-combobox" id="crn-enterprise-dynamic-combobox-est_Estado" class="">
+                <div data-component="crn-enterprise-dynamic-combobox" id="crn-enterprise-dynamic-combobox-estado" class="">
                     <div class="form-group">
-                        <label for="enterprise-dynamic-combobox-est_Estado" class="">Est_Estado</label>
+                        <label for="enterprise-dynamic-combobox-estado" class="">Estado</label>
  <!-- else for if !model.hasCronappFramework() -->
-								<cron-dynamic-select id="enterprise-dynamic-combobox-est_Estado" options="{&quot;dataSourceScreen&quot;:{&quot;name&quot;:&quot;est_EstadoCombo&quot;,&quot;entity&quot;:&quot;app.est_Estado&quot;,&quot;entityDataSource&quot;:{&quot;id&quot;:&quot;app.est_Estado&quot;,&quot;customId&quot;:&quot;est_Estado&quot;,&quot;name&quot;:&quot;est_EstadoCombo&quot;,&quot;customQueryName&quot;:&quot;app.est_Estado&quot;,&quot;paramValues&quot;:[],&quot;entityFullName&quot;:&quot;app.entity.est_Estado&quot;,&quot;schemaFields&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;sigla&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;type&quot;:&quot;entity&quot;},&quot;schema&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;sigla&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;id&quot;:&quot;app.est_Estado&quot;},&quot;filter&quot;:&quot;contains&quot;,&quot;dataTextField&quot;:&quot;nome&quot;,&quot;dataValueField&quot;:&quot;id&quot;,&quot;dynamic&quot;:true,&quot;valuePrimitive&quot;:true,&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[]}" ng-model="cid_cidades.active.est_Estado" class="crn-select form-control">
+								<cron-dynamic-select id="enterprise-dynamic-combobox-estado" options="{&quot;dataSourceScreen&quot;:{&quot;name&quot;:&quot;EstadosCombo&quot;,&quot;entity&quot;:&quot;app.Estados&quot;,&quot;entityDataSource&quot;:{&quot;id&quot;:&quot;app.Estados&quot;,&quot;customId&quot;:&quot;Estados&quot;,&quot;name&quot;:&quot;EstadosCombo&quot;,&quot;customQueryName&quot;:&quot;app.Estados&quot;,&quot;paramValues&quot;:[],&quot;entityFullName&quot;:&quot;app.entity.Estados&quot;,&quot;schemaFields&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;sigla&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;capital&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;capital_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;type&quot;:&quot;entity&quot;},&quot;schema&quot;:[{&quot;name&quot;:&quot;id&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:false,&quot;key&quot;:true},{&quot;name&quot;:&quot;nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;sigla&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;capital&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false},{&quot;name&quot;:&quot;capital_nome&quot;,&quot;type&quot;:&quot;String&quot;,&quot;nullable&quot;:true,&quot;key&quot;:false}],&quot;id&quot;:&quot;app.Estados&quot;},&quot;filter&quot;:&quot;contains&quot;,&quot;dataTextField&quot;:&quot;nome&quot;,&quot;dataValueField&quot;:&quot;id&quot;,&quot;dynamic&quot;:true,&quot;valuePrimitive&quot;:true,&quot;relationDataSource&quot;:{&quot;schema&quot;:[]},&quot;staticDataSource&quot;:[]}" ng-model="Cidades.active.estado" class="crn-select form-control">
 								</cron-dynamic-select>    
                          <!-- end if !model.hasCronappFramework() -->
                     </div>

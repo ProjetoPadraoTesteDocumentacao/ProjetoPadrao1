@@ -3,9 +3,12 @@
     <persistence-unit name="app" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <non-jta-data-source>java:comp/env/jdbc/main</non-jta-data-source>
+        <class>app.entity.Cidades</class>
+        <class>app.entity.Estados</class>
+        <class>app.entity.est_estado</class>
+        <class>app.entity.cid_cidades</class>
         <class>app.entity.cap_capitais</class>
         <class>app.entity.est_Estado</class>
-        <class>app.entity.cid_cidades</class>
         <class>app.entity.User</class>
         <class>app.entity.Role</class>
         <properties>

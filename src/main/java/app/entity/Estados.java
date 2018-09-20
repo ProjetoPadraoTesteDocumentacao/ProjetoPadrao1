@@ -10,15 +10,15 @@ import cronapi.rest.security.CronappSecurity;
 
 
 /**
- * Classe que representa a tabela CID_CIDADES
+ * Classe que representa a tabela ESTADOS
  * @generated
  */
 @Entity
-@Table(name = "\"CID_CIDADES\"")
+@Table(name = "\"ESTADOS\"")
 @XmlRootElement
 @CronappSecurity
-@JsonFilter("app.entity.cid_cidades")
-public class cid_cidades implements Serializable {
+@JsonFilter("app.entity.Estados")
+public class Estados implements Serializable {
 
   /**
    * UID da classe, necessário na serialização
@@ -30,29 +30,36 @@ public class cid_cidades implements Serializable {
    * @generated
    */
   @Id
-  @Column(name = "cid_id", nullable = false, insertable=true, updatable=true)
+  @Column(name = "id", nullable = false, insertable=true, updatable=true)
   private java.lang.String id = UUID.randomUUID().toString().toUpperCase();
 
   /**
   * @generated
   */
-  @Column(name = "cid_nome", nullable = true, unique = false, insertable=true, updatable=true)
+  @Column(name = "nome", nullable = true, unique = false, insertable=true, updatable=true)
   
   private java.lang.String nome;
 
   /**
   * @generated
   */
-  @ManyToOne
-  @JoinColumn(name="fk_est_Estado", nullable = true, referencedColumnName = "est_id", insertable=true, updatable=true)
+  @Column(name = "sigla", nullable = true, unique = false, insertable=true, updatable=true)
   
-  private est_Estado est_Estado;
+  private java.lang.String sigla;
+
+  /**
+  * @generated
+  */
+  @ManyToOne
+  @JoinColumn(name="fk_cidades", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+  
+  private Cidades capital;
 
   /**
    * Construtor
    * @generated
    */
-  public cid_cidades(){
+  public Estados(){
   }
 
 
@@ -71,7 +78,7 @@ public class cid_cidades implements Serializable {
    * @param id id
    * @generated
    */
-  public cid_cidades setId(java.lang.String id){
+  public Estados setId(java.lang.String id){
     this.id = id;
     return this;
   }
@@ -91,28 +98,48 @@ public class cid_cidades implements Serializable {
    * @param nome nome
    * @generated
    */
-  public cid_cidades setNome(java.lang.String nome){
+  public Estados setNome(java.lang.String nome){
     this.nome = nome;
     return this;
   }
 
   /**
-   * Obtém est_Estado
-   * return est_Estado
+   * Obtém sigla
+   * return sigla
    * @generated
    */
   
-  public est_Estado getEst_Estado(){
-    return this.est_Estado;
+  public java.lang.String getSigla(){
+    return this.sigla;
   }
 
   /**
-   * Define est_Estado
-   * @param est_Estado est_Estado
+   * Define sigla
+   * @param sigla sigla
    * @generated
    */
-  public cid_cidades setEst_Estado(est_Estado est_Estado){
-    this.est_Estado = est_Estado;
+  public Estados setSigla(java.lang.String sigla){
+    this.sigla = sigla;
+    return this;
+  }
+
+  /**
+   * Obtém capital
+   * return capital
+   * @generated
+   */
+  
+  public Cidades getCapital(){
+    return this.capital;
+  }
+
+  /**
+   * Define capital
+   * @param capital capital
+   * @generated
+   */
+  public Estados setCapital(Cidades capital){
+    this.capital = capital;
     return this;
   }
 
@@ -123,7 +150,7 @@ public class cid_cidades implements Serializable {
   public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null || getClass() != obj.getClass()) return false;
-    cid_cidades object = (cid_cidades)obj;
+    Estados object = (Estados)obj;
     if (id != null ? !id.equals(object.id) : object.id != null) return false;
     return true;
   }
